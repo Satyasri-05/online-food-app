@@ -6,10 +6,11 @@ pipeline {
             steps {
                 script {
                     echo "🧹 Stopping and removing old containers (if any)..."
-                    bat 'docker stop food-backend || echo No backend container'
-                    bat 'docker stop food-frontend || echo No frontend container'
-                    bat 'docker rm food-backend || echo No backend to remove'
-                    bat 'docker rm food-frontend || echo No frontend to remove'
+                    // Add "returnStatus: true" to prevent failure
+                    bat(returnStatus: true, script: 'docker stop food-backend')
+                    bat(returnStatus: true, script: 'docker stop food-frontend')
+                    bat(returnStatus: true, script: 'docker rm food-backend')
+                    bat(returnStatus: true, script: 'docker rm food-frontend')
                 }
             }
         }
