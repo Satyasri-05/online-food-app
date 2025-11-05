@@ -6,10 +6,10 @@ pipeline {
             steps {
                 script {
                     echo "🧹 Stopping and removing old containers (if any)..."
-                    sh '''
-                        docker stop $(docker ps -q) || true
-                        docker rm $(docker ps -aq) || true
-                    '''
+                    bat 'docker stop food-backend || echo No backend container'
+                    bat 'docker stop food-frontend || echo No frontend container'
+                    bat 'docker rm food-backend || echo No backend to remove'
+                    bat 'docker rm food-frontend || echo No frontend to remove'
                 }
             }
         }
@@ -17,8 +17,7 @@ pipeline {
         stage('Build Backend Docker Image') {
             steps {
                 script {
-                    echo "🐳 Building backend Docker image..."
-                    sh 'docker build -f infra/Dockerfile.backend -t food-backend .'
+                    bat 'docker build -f infra/Dockerfile.backend -t food-backend .'
                 }
             }
         }
@@ -26,8 +25,7 @@ pipeline {
         stage('Build Frontend Docker Image') {
             steps {
                 script {
-                    echo "🐳 Building frontend Docker image..."
-                    sh 'docker build -f infra/Dockerfile.frontend -t food-frontend .'
+                    bat 'docker build -f infra/Dockerfile.frontend -t food-frontend .'
                 }
             }
         }
@@ -35,12 +33,10 @@ pipeline {
         stage('Run Containers') {
             steps {
                 script {
-                    echo "🚀 Running backend and frontend containers..."
-                    sh 'docker run -d -p 8000:8000 --name food-backend food-backend'
-                    sh 'docker run -d -p 8080:80 --name food-frontend food-frontend'
+                    bat 'docker run -d -p 8000:8000 --name food-backend food-backend'
+                    bat 'docker run -d -p 8080:80 --name food-frontend food-frontend'
                 }
             }
         }
     }
 }
-
