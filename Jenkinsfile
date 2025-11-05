@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/Satyasri-05/online-food-app.git'
-            }
-        }
-
         stage('Build Backend Docker Image') {
             steps {
                 script {
@@ -34,3 +28,4 @@ pipeline {
         }
     }
 }
+
