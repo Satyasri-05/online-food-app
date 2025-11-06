@@ -1,11 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Online Food Ordering</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amrutham Restaurant</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Welcome to FoodieHub</h1>
-  <button onclick="alert('Order placed!')">Order Now</button>
+  <h1>🍴 Welcome to Amrutham Restaurant</h1>
+  <div id="menu"></div>
+
+  <script>
+    fetch("http://localhost:8000/menu")
+      .then(res => res.json())
+      .then(data => {
+        const menuDiv = document.getElementById("menu");
+        data.forEach(item => {
+          menuDiv.innerHTML += `
+            <div class="card">
+              <img src="${item.image}" alt="${item.name}">
+              <h3>${item.name}</h3>
+              <p>${item.description}</p>
+              <p class="price">₹${item.price}</p>
+            </div>
+          `;
+        });
+      });
+  </script>
 </body>
 </html>
