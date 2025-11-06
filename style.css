@@ -1,0 +1,122 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff9f0;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  background-color: #ff6347;
+  color: white;
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.menu-item {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  margin: 15px;
+  width: 250px;
+  padding: 15px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.menu-item:hover {
+  transform: scale(1.03);
+}
+
+.menu-item img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.menu-item h3 {
+  margin-top: 10px;
+  color: #333;
+}
+
+.menu-item p {
+  font-size: 14px;
+  color: #777;
+}
+
+.menu-item h4 {
+  color: #e63946;
+  font-weight: bold;
+}
+
+.menu-item button {
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.menu-item button:hover {
+  background-color: #e04e33;
+}
+
+/* Popup Order Form */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 350px;
+  text-align: left;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+.btn {
+  width: 100%;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.success-message {
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+}
