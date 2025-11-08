@@ -1,62 +1,15 @@
-[
-  {
-    "name": "Chicken Biryani",
-    "description": "Aromatic basmati rice cooked with tender chicken and spices.",
-    "price": 180,
-    "image": "images/biryani.jpg"
-  },
-  {
-    "name": "Veg Biryani",
-    "description": "Delicious vegetable biryani with rich flavors and aroma.",
-    "price": 150,
-    "image": "images/veg_biryani.jpg"
-  },
-  {
-    "name": "Pizza",
-    "description": "Cheesy Italian pizza topped with fresh vegetables and sauce.",
-    "price": 220,
-    "image": "images/pizza.jpg"
-  },
-  {
-    "name": "Ice Cream Cake",
-    "description": "Soft and creamy ice cream cake with chocolate drizzle.",
-    "price": 120,
-    "image": "images/butterscotch.jpg"
-  },
-  {
-    "name": "Cold Coffee",
-    "description": "Chilled creamy cold coffee with chocolate syrup.",
-    "price": 90,
-    "image": "images/cold_coffee.jpg"
-  },
-  {
-    "name": "Chocolate Ice Cream",
-    "description": "Rich chocolate ice cream with crunchy choco chips.",
-    "price": 70,
-    "image": "images/chocolate_icecream.jpg"
-  },
-  {
-    "name": "Chocolate Milkshake",
-    "description": "Refreshing milkshake with chocolate flavor.",
-    "price": 100,
-    "image": "images/milkshake.jpg"
-  },
-  {
-    "name": "Butterscotch Cake",
-    "description": "Moist butterscotch cake with caramel topping.",
-    "price": 160,
-    "image": "images/butterscotch.jpg"
-  },
-  {
-    "name": "Chicken Lollipops",
-    "description": "Crispy spicy chicken lollipops served with sauce.",
-    "price": 200,
-    "image": "images/lollipop.jpg"
-  },
-  {
-    "name": "Prawns Fry",
-    "description": "Crispy golden fried prawns with South Indian spices.",
-    "price": 240,
-    "image": "images/prawns.jpg"
-  }
-]
+{
+  "restaurant": "Adbutah Restaurant",
+  "items": [
+    {"name": "Chicken Biryani", "price": 180, "category": "Biryani", "image": "images/biryani.jpg", "description": "Aromatic rice cooked with tender chicken and spices."},
+    {"name": "Veg Biryani", "price": 150, "category": "Biryani", "image": "images/veg_biryani.jpg", "description": "Flavourful biryani made with fresh vegetables."},
+    {"name": "Pizza", "price": 220, "category": "Main Course", "image": "images/pizza.jpg", "description": "Cheesy pizza topped with veggies and herbs."},
+    {"name": "Ice Cream Cake", "price": 120, "category": "Dessert", "image": "images/icecream_cake.jpg", "description": "Creamy ice cream layered with soft cake."},
+    {"name": "Cold Coffee", "price": 90, "category": "Beverages", "image": "images/cold_coffee.jpg", "description": "Chilled coffee blended with milk and ice cream."},
+    {"name": "Chocolate Ice Cream", "price": 80, "category": "Dessert", "image": "images/chocolate_icecream.jpg", "description": "Rich chocolate-flavored ice cream scoop."},
+    {"name": "Chocolate Milkshake", "price": 100, "category": "Beverages", "image": "images/milkshake.jpg", "description": "Creamy milkshake blended with chocolate syrup."},
+    {"name": "Butterscotch Cake", "price": 130, "category": "Dessert", "image": "images/cake.jpg", "description": "Soft butterscotch cake with caramel topping."},
+    {"name": "Chicken Lollipops", "price": 160, "category": "Starters", "image": "images/lollipop.jpg", "description": "Crispy and juicy fried chicken lollipops."},
+    {"name": "Prawns Fry", "price": 190, "category": "Starters", "image": "images/prawns.jpg", "description": "Spicy fried prawns served with lemon and onion."}
+  ]
+}

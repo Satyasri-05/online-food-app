@@ -3,37 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amrutham Restaurant</title>
+  <title>Adbutah Restaurant</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>🍴 Welcome to Amrutham Restaurant</h1>
+    <h1>🍴 Adbutah Restaurant</h1>
+    <p>Delicious dishes, made with love and served fresh!</p>
   </header>
 
-  <div id="menu-container" class="menu-container"></div>
+  <!-- Categories -->
+  <section class="menu-section">
+    <h2>🍛 Biryani Specials</h2>
+    <div class="menu-container">
+      <div class="menu-item">
+        <img src="images/biryani.jpg" alt="Chicken Biryani">
+        <h3>Chicken Biryani</h3>
+        <p>₹180</p>
+        <button onclick="openOrderForm('Chicken Biryani', 180)">Order</button>
+      </div>
+      <div class="menu-item">
+        <img src="images/veg_biryani.jpg" alt="Veg Biryani">
+        <h3>Veg Biryani</h3>
+        <p>₹150</p>
+        <button onclick="openOrderForm('Veg Biryani', 150)">Order</button>
+      </div>
+      <div class="menu-item">
+        <img src="images/prawns.jpg" alt="Prawns Fry">
+        <h3>Prawns Fry</h3>
+        <p>₹200</p>
+        <button onclick="openOrderForm('Prawns Fry', 200)">Order</button>
+      </div>
+    </div>
+
+    <h2>🍕 Fast Food</h2>
+    <div class="menu-container">
+      <div class="menu-item">
+        <img src="images/pizza.jpg" alt="Pizza">
+        <h3>Pizza</h3>
+        <p>₹160</p>
+        <button onclick="openOrderForm('Pizza', 160)">Order</button>
+      </div>
+      <div class="menu-item">
+        <img src="images/lollipop.jpg" alt="Chicken Lollipops">
+        <h3>Chicken Lollipops</h3>
+        <p>₹130</p>
+        <button onclick="openOrderForm('Chicken Lollipops', 130)">Order</button>
+      </div>
+    </div>
+
+    <h2>🍰 Desserts</h2>
+    <div class="menu-container">
+      <div class="menu-item">
+        <img src="images/icecream_cake.jpg" alt="Ice Cream Cake">
+        <h3>Ice Cream Cake</h3>
+        <p>₹120</p>
+        <button onclick="openOrderForm('Ice Cream Cake', 120)">Order</button>
+      </div>
+      <div class="menu-item">
+        <img src="images/chocolate_icecream.jpg" alt="Chocolate Ice Cream">
+        <h3>Chocolate Ice Cream</h3>
+        <p>₹80</p>
+        <button onclick="openOrderForm('Chocolate Ice Cream', 80)">Order</button>
+      </div>
+      <div class="menu-item">
+        <img src="images/cake.jpg" alt="Butterscotch Cake">
+        <h3>Butterscotch Cake</h3>
+        <p>₹100</p>
+        <button onclick="openOrderForm('Butterscotch Cake', 100)">Order</button>
+      </div>
+    </div>
+
+    <h2>☕ Beverages</h2>
+    <div class="menu-container">
+      <div class="menu-item">
+        <img src="images/cold_coffee.jpg" alt="Cold Coffee">
+        <h3>Cold Coffee</h3>
+        <p>₹70</p>
+        <button onclick="openOrderForm('Cold Coffee', 70)">Order</button>
+      </div>
+      <div class="menu-item">
+        <img src="images/milkshake.jpg" alt="Chocolate Milkshake">
+        <h3>Chocolate Milkshake</h3>
+        <p>₹90</p>
+        <button onclick="openOrderForm('Chocolate Milkshake', 90)">Order</button>
+      </div>
+    </div>
+  </section>
 
   <!-- Popup Order Form -->
-  <div id="orderModal" class="modal">
-    <div class="modal-content">
-      <span id="closeModal" class="close">&times;</span>
-      <h2>Place Your Order</h2>
+  <div id="orderPopup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closeOrderForm()">&times;</span>
+      <h2>📝 Place Your Order</h2>
       <form id="orderForm">
-        <label>Name:</label>
-        <input type="text" id="customerName" required>
-
-        <label>Quantity:</label>
-        <input type="number" id="quantity" value="1" min="1" required>
-
-        <label>Address:</label>
-        <textarea id="address" rows="3" required></textarea>
-
-        <button type="submit" class="btn">Confirm Order</button>
+        <input type="text" id="name" placeholder="Your Name" required><br>
+        <input type="text" id="address" placeholder="Delivery Address" required><br>
+        <input type="text" id="item" readonly><br>
+        <input type="text" id="price" readonly><br>
+        <input type="number" id="quantity" placeholder="Quantity" min="1" required><br>
+        <button type="submit">Place Order</button>
       </form>
-      <p id="confirmationMessage" class="success-message"></p>
+      <p id="orderMessage"></p>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <footer>
+    <p>© 2025 Adbutah Restaurant | Made with ❤️ for food lovers</p>
+  </footer>
+
+  <script>
+    const popup = document.getElementById('orderPopup');
+    const itemInput = document.getElementById('item');
+    const priceInput = document.getElementById('price');
+    const orderMessage = document.getElementById('orderMessage');
+    const form = document.getElementById('orderForm');
+
+    function openOrderForm(itemName, price) {
+      itemInput.value = itemName;
+      priceInput.value = "₹" + price;
+      popup.style.display = 'flex';
+    }
+
+    function closeOrderForm() {
+      popup.style.display = 'none';
+      form.reset();
+      orderMessage.textContent = '';
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      orderMessage.textContent = "✅ Order placed successfully! Your delicious meal is on the way!";
+      form.reset();
+    });
+
+    window.onclick = function(event) {
+      if (event.target === popup) {
+        closeOrderForm();
+      }
+    }
+  </script>
 </body>
 </html>
